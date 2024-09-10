@@ -1,3 +1,58 @@
+/* -----------------------------
+--------------------------------
+--------------------------------
+
+CSS TABLE OF CONTENTS
+
+# GLOBAL STYLES
+    # GLOBAL VARIABLES
+    # GLOBAL COLORS
+
+
+
+--------------------------------
+--------------------------------
+-------------------------------- */
+
+
+/* GLOBAL VARIABLES */
+
+:root {
+
+    /* DEFINE ALL COMMONLY USED COLORS HERE */
+
+    --color-body-background: rgb(0 0 0);
+    --color-text-body: rgb(255 255 255 / .8);
+    --color-text-headings: rgb(255 255 255 / 1);
+    --color-links: rgb(255 255 0 / .7);
+    --color-links-hover: rgb(255 255 0 / 1);
+
+}
+
+/* GLOBAL COLORS */
+
 body {
-    background-color: pink;
+
+    /* SET THE COLOR OF THE MAIN BODY BACKGROUND */
+    background-color: var(--color-body-background);
+
+    /* SET THE COLOR OF THE MAIN BODY TEXT */
+    color: var(--color-text-body);
+
+}
+
+h1, h2, h3 {
+     /* SET THE COLOR OF ALL HEADINGS H1-etc */
+    color: var(--color-text-headings);
+}
+
+a {
+    /* SET THE COLOR OF ALL TEXT LINKS */
+    color: var(--color-links);
+
+    &:hover {
+        /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
+        color: var(--color-links-hover);
+    }
+
 }
