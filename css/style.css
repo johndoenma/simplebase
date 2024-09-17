@@ -16,6 +16,13 @@ CSS TABLE OF CONTENTS
     # CONTAINER
     # GRID
 
+# SITE STRUCTURE
+    # HEADER
+        # LOGO
+        # SITE NAV
+    # MAIN
+        # SECTIONS
+    # FOOTER
 
 
 --------------------------------
@@ -44,6 +51,9 @@ CSS TABLE OF CONTENTS
 
     /* SIZING UNITS */
     --container-width: 1100px;
+    --unit-small: 1em;
+    --unit-medium: 2em;
+    --unit-large: 4em;
 
 
 }
@@ -223,7 +233,7 @@ body {
     .col-11 { grid-column: auto / span 11; }
     .col-12 { grid-column: auto / span 12; }
 
-    /* CENTERED COLUMNS */
+    /* COMMONLY CENTERED COLUMNS */
     .one-half.centered { grid-column: 4 / span 6; }
     .one-third.centered { grid-column: 5 / span 4; }
     .two-thirds.centered { grid-column: 3 / span 8; }
@@ -248,4 +258,37 @@ body {
     background-color: #444;
     padding: 1em;
     text-align: center;
+}
+
+
+/* -------------------- */
+/* -- SITE STRUCTURE -- */
+/* -------------------- */
+
+/* SITE HEADER */
+.site-header {
+    background-color: pink;
+    /* PUT ALL HEADER CHILDRESN SIDE-BY-SIDE */
+    display: flex;
+    justify-content: space-between;
+
+    /* ADD SOME GENERAL SPACING/PADDING AROUND THE HEADER */
+    padding: var(--unit-small);
+}
+
+/* SITE MAIN */
+.site-main {
+}
+
+/* SECTIONS */
+section {
+    padding: var(--unit-large) var(--unit-small);
+}
+
+/* SITE HEADER */
+.site-footer {
+    background-color: skyblue;
+
+    /* ADD SOME GENERAL SPACING/PADDING AROUND THE FOOTER */
+    padding: var(--unit-small);
 }
