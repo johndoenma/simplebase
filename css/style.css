@@ -26,6 +26,10 @@ CSS TABLE OF CONTENTS
             # HERO
     # FOOTER
 
+# UI COMPONENTS
+    # BUTTONS
+    # CARDS
+
 
 --------------------------------
 --------------------------------
@@ -44,8 +48,10 @@ CSS TABLE OF CONTENTS
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 / 1);
 
-    --color-links: rgb(0 0 153 / 0.8);
-    --color-links-hover: rgb(0 0 153 / 1);
+    --color-links-dark: rgb(102 102 102);
+    --color-links-darker: rgb(0 0 0);
+    --color-links-light: rgb(204 204 204);
+    --color-links-lighter: rgb(255 255 255);
 
     --color-siteheader-background: transparent;
     --color-siteheader-links: rgb(255 255 255);
@@ -371,7 +377,6 @@ body {
 
 }
 
-
 /* SITE MAIN */
 .site-main {
 }
@@ -409,7 +414,11 @@ section {
     }
 
     a {
-        color: var(--color-sitefooter-links);
+        color: var(--color-links-light);
+
+        &:hover {
+            color: var(--color-links-lighter);
+        }
     }
 
     .site-nav {
@@ -418,6 +427,52 @@ section {
             margin: 0;
             padding: 0;
         }
+    }
+
+}
+
+
+/* ------------------- */
+/* -- UI COMPONENTS -- */
+/* ------------------- */
+
+/* BUTTONS */
+
+.button {
+    /* SET THE BUTTON COLORS */
+    border: 1px solid var(--color-links-dark);
+    background-color: var(--color-links-dark);
+    color: white;
+
+    /* ENABLE BOX MODEL STYLING */
+    display: inline-block;
+    padding: var(--unit-small);
+    margin: var(--unit-small) 0;
+
+    /* GET RID OF THE UNDERLINE */
+    text-decoration: none;
+
+    + .button {
+        margin-left: var(--unit-small);
+    }
+
+    &:hover {
+        color: #fff;
+        background-color: var(--color-links-darker);
+        border-color: var(--color-links-darker);
+    }
+
+    /* LIGHT BUTTON VARIANT */
+    &.light {
+        border-color: var(--color-links-light);
+        background-color: var(--color-links-light);
+        color: var(--color-links-darker);
+
+        &:hover {
+            border-color: var(--color-links-lighter);
+            background-color: var(--color-links-lighter);
+        }
+
     }
 
 }
