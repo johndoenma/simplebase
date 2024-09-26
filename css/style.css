@@ -241,6 +241,7 @@ body {
 }
 
 .row > * {
+    margin-top: var(--gridgap);
     margin-bottom: var(--gridgap);
 }
 
@@ -333,6 +334,7 @@ body {
         /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 1em;
 
         /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
@@ -352,11 +354,9 @@ body {
             margin: 0;
             padding: 0;
             list-style: none;
-
-            /* DISPLAY CHILDREN SIDE-BY-SIDE ON LARGE SCREENS */
-            @media (min-width: 768px) {
-                display: flex;
-            }
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
 
         }
 
@@ -370,26 +370,24 @@ body {
 
 }
 
-/* PLACE SITE HEADER ON TOP OF HERO */
+/* PLACE SITE HEADER ON TOP OF HERO ON LARGE SCREENS */
 .site-header.on-top-of-hero {
 
-    /* RENDER HEADER ON TOP OF HERO ON LARGE SCREENS */
     @media (min-width: 768px) {
+
+        /* RENDER HEADER ON TOP OF HERO */
         position: absolute;
         width: 100%;
-    }
 
         /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
-    @media (min-width: 768px) {
         a {
             color: var(--color-siteheader-links);
         }
-    }
-
-    & + .site-main > .hero {
 
         /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
-        padding-top: calc(4em + var(--unit-large));
+        & + .site-main > .hero {
+            padding-top: calc(4em + var(--unit-large));
+        }
 
     }
 
