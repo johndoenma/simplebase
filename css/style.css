@@ -237,7 +237,7 @@ body {
 
 /* GRID */
 .row {
-    --gridgap: 1em;
+    --gridgap: 2em;
 }
 
 .row > * {
