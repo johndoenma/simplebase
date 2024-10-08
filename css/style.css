@@ -30,7 +30,11 @@ CSS TABLE OF CONTENTS
 
 # UI COMPONENTS
     # BUTTONS
-    # CARDS
+
+# ANIMATION
+    # SMOOTH SCROLLING
+
+# CUSTOM STYLING
 
 
 --------------------------------
@@ -56,7 +60,7 @@ CSS TABLE OF CONTENTS
     --color-links-lighter: rgb(255 255 255);
 
     --color-siteheader-background: transparent;
-    --color-siteheader-links: rgb(255 255 255);
+    --color-siteheader-links: var(--color-text-headings);
 
     --color-hero-background: rgb(100 100 100);
     --color-hero-text: rgb(255 255 255 / .8);
@@ -89,7 +93,6 @@ CSS TABLE OF CONTENTS
 body { margin: 0; }
 
 /* GLOBAL COLORS */
-
 body {
 
     /* SET THE COLOR OF THE MAIN BODY BACKGROUND */
@@ -100,12 +103,13 @@ body {
 
 }
 
+/* SET THE COLOR OF ALL HEADINGS H1-etc */
 h1, h2, h3 {
-     /* SET THE COLOR OF ALL HEADINGS H1-etc */
     color: var(--color-text-headings);
 }
 
 a {
+
     /* SET THE COLOR OF ALL TEXT LINKS */
     color: var(--color-links);
 
@@ -117,7 +121,6 @@ a {
 }
 
 /* GLOBAL TYPOGRAPHY */
-
 body {
 
     /* SET THE FONT FOR ALL MAIN BODY TEXT */
@@ -128,39 +131,29 @@ body {
 
 }
 
+/* SET THE FONT FAMILY AND MARGINS FOR ALL HEADINGS */
 h1, h2, h3 {
-
-    /* SET THE FONT FOR ALL HEADINGS */
     font-family: var(--font-headings);
-
+    margin: .4em 0;
 }
 
+/* SET H1 FONT SIZE AND LEADING */
 h1 {
-    /* SET H1 FONT SIZE */
     font-size: 3em;
-
-    /* SET H1 LEADING */
     line-height: 1.1;
 }
 
-
+/* SET H2 FONT SIZE AND LEADING */
 h2 {
-    /* SET H2 FONT SIZE */
     font-size: 2em;
-
-    /* SET H2 LEADING */
     line-height: 1.2;
 }
 
-
+/* SET H3 FONT SIZE AND LEADING */
 h3 {
-    /* SET H3 FONT SIZE */
     font-size: 1.5em;
-
-    /* SET H3 LEADING */
     line-height: 1.3;
 }
-
 
 p {
     /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
@@ -173,9 +166,8 @@ p {
 
 /* GLOBAL MEDIA */
 
+/* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
 img {
-
-    /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
     max-width: 100%;
     height: auto; 
 }
@@ -345,10 +337,16 @@ body {
             text-wrap: nowrap;
         }
 
+        /* REMOVE THE SPACE UNDER THE LOGO MARK */
+        img, svg {
+            display: block;
+        }
+
+
     }
 
     /* SITE-NAV */
-    .site-nav {
+    .site-header-nav {
 
         ul {
             /* REMOVE MARGINS & BULLETS FROM LIST */
@@ -366,107 +364,162 @@ body {
             display: block;
             padding: 1em;
         }
-
-        /* TOGGLE MENU */
-
-        /* HIDE MENU BUTTON IF NOT USING TOGGLE NAV */
-        .site-menu-button {
-            display: none;
-        }
-
-        &.toggle-menu {
-
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-
-            /* SHOW MENU BUTTON IF USING TOGGLE NAV */
-            .site-menu-button {
-                display: block;
-                background-color: transparent;
-                border: 1px solid black;
-                padding: .5em;
-                position: relative;
-                z-index: 100;
-
-                
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-
-            .site-menu {
-                position: fixed;
-                top: 0;
-                right: 0;
-                z-index: 50;
-                background-color: pink;
-                width: 100%;
-                min-height: 100svh;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                font-size: 3vw;
-                transition: .4s all ease-out;
-
-                a {
-                    padding: 2vh 2vw;
-                }
-            }
-
-            &[data-menustate="open"] {
-
-                /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
-                .site-menu-button {
-                    position: fixed;
-                    z-index: 100;
-                }
-
-                /* SHOW THE SITE MENU WHEN OPEN */
-                .site-menu {
-                    transform: translateX(0);
-                }
-
-            }
-
-            &[data-menustate="closed"] {
-
-                /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
-                .site-menu {
-                    transform: translateX(100%);
-                }
-            }
-        }
-
-    }
-
-    /* IF TOGGLE MENU DISPLAY LOGO ON LEFT AND MENU ON RIGHT ON ALL SCREENS */
-    &:has(.toggle-menu) {
-        display: flex;
-        justify-content: space-between;
+    
     }
 
 }
 
+/* TOGGLE MENU */
+
+/* HIDE MENU BUTTON IF NOT USING TOGGLE NAV */
+.site-menu-button {
+    display: none;
+}
+
+.toggle-menu {
+
+    /* SET TOGGLE MENU COLORS */
+    --color-togglemenu-text: white;
+    --color-togglemenu-background: black;
+
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    /* SHOW MENU BUTTON IF USING TOGGLE NAV */
+    .site-menu-button {
+        display: block;
+        background-color: transparent;
+        border: 1px solid var(--color-siteheader-links);
+        color: var(--color-siteheader-links);
+        padding: .5em;
+        position: relative;
+        z-index: 100;
+        transition: .4s all ease-out;
+
+        /* RESET BUTTON FONT SIZE TO SAME AS SITE HEADER NAV */
+        font-size: inherit;
+        
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:has(svg) {
+            
+            /* VERTICALLY ALIGN AND ADD GAP */
+            display: flex;
+            align-items: center;
+            gap: calc(var(--unit-small) / 2);
+
+            /* REMOVE BORDER */
+            border: none;
+
+            /* SET SVG COLOR */
+            svg {
+                fill: var(--color-siteheader-links);
+            }
+
+            /* ADD SUPPORT FOR SVG ANIMATION */
+            svg > * {
+                transition: .2s all ease-out;
+                transform-origin: center;
+            }
+
+        }
+
+    }
+
+    .site-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 50;
+        background-color: var(--color-togglemenu-background);
+        width: 100%;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        transition: .4s all ease-out;
+
+        a {
+            padding: 2vh 2vw;
+            color: var(--color-togglemenu-text);
+        }
+    }
+
+    &[data-menustate="open"] {
+
+        /* CHANGE COLORS TO TOGGLE MENU COLORS WHEN OPEN */
+        --color-siteheader-links: var(--color-togglemenu-text);
+
+        /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
+        .site-menu-button {
+            position: fixed;
+            z-index: 100;
+        }
+
+        /* SHOW THE SITE MENU WHEN OPEN */
+        .site-menu {
+            transform: translateX(0);
+        }
+
+        /* ANIMATE THE NAVICON / HAMBURGER ICON */
+        /* ADD SUPPORT FOR NAVICON/HAMBURGER ICON */
+        .site-menu-button svg {
+            .simple-navicon-top {
+                transform: translate(-21%, 25%) rotate(45deg);
+            }
+            .simple-navicon-middle {
+                opacity: 0;
+            }
+            .simple-navicon-bottom {
+                transform: translate(-21%, -25%) rotate(-45deg);
+            }
+        }
+
+    }
+
+    &[data-menustate="closed"] {
+
+        /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
+        .site-menu {
+            transform: translateX(100%);
+        }
+    }
+}
+
+/* IF TOGGLE MENU DISPLAY LOGO ON LEFT AND MENU ON RIGHT ON ALL SCREENS */
+.site-header:has(.toggle-menu) {
+    display: flex;
+    justify-content: space-between;
+
+    .site-logo {
+        position: relative;
+        z-index: 100;
+    }
+
+}
+
+
 /* PLACE SITE HEADER ON TOP OF HERO ON LARGE SCREENS */
 .site-header.on-top-of-hero {
 
-    @media (min-width: 768px) {
+    /* RENDER HEADER ON TOP OF HERO */
+    position: absolute;
+    width: 100%;
 
-        /* RENDER HEADER ON TOP OF HERO */
-        position: absolute;
-        width: 100%;
+    /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
+    --color-siteheader-links: var(--color-hero-headings);
+    a {
+        color: var(--color-siteheader-links);
+    }
 
-        /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
-        a {
-            color: var(--color-siteheader-links);
-        }
-
-        /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
-        & + .site-main > .hero {
-            padding-top: calc(4em + var(--unit-large));
-        }
-
+    /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
+    & + .site-main > .hero {
+        padding-top: calc(4em + var(--unit-large));
     }
 
 }
@@ -486,6 +539,12 @@ section {
 .hero {
     background-color: var(--color-hero-background);
     color: var(--color-hero-text);
+
+    h1 {
+        font-size: 4em;
+        line-height: 1;
+        text-wrap: balance;
+    }
 
     h1, h2, h3 {
         color: var(--color-hero-headings);
@@ -513,7 +572,7 @@ section {
         }
     }
 
-    .site-nav {
+    .site-footer-nav {
         ul {
             list-style: none;
             margin: 0;
@@ -567,4 +626,13 @@ section {
 
     }
 
+}
+
+/* ------------------- */
+/* -- ANIMATION -- */
+/* ------------------- */
+
+/* ENABLE NATIVE SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
 }
