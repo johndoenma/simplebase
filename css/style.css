@@ -9,6 +9,9 @@ TABLE OF CONTENTS
 
     ...
 
+# UI COMPONENTS
+    # CARDS
+
     (WE WILL ADD MORE HERE)
 
 ----------------------- */
@@ -24,6 +27,8 @@ TABLE OF CONTENTS
     --color-white: #fff;
     --color-black: #000;
     --color-black-80: rgb(0 0 0 / .8);
+
+    --color-grey-200: rgb(0 0 0 / .2);
 
     --color-blue-100: #dbeafe;
     --color-blue-400: #3b82f6;
@@ -42,10 +47,27 @@ TABLE OF CONTENTS
     --color-primary-dark: var(--color-blue-900);
     --color-secondary: var(--color-green-400);
 
+    /* BORDERS */
+    --color-border: var(--color-grey-200);
+    --border-radius: 5px;
+    --border-thickness: .5px;
+
+    /* SIZING UNITS */
+    --unit-2xs: 0.25em;
+    --unit-xs: 0.5em;
+    --unit-s: 1em;
+    --unit-l: 2em;
+    --unit-xl: 3em;
+    --unit-2xl: 4em;
+    --unit-3xl: 6em;
+
+    /* GLOBAL FONTS */
+    --font-body: ui-system, Helvetica, arial, sans-serif;
+    --font-headings: Georgia, Times, "Times New Roman", serif;
+
 }
 
 /* SET GLOBAL COLORS */
-
 body {
     background-color: var(--color-body-background);
     color: var(--color-body-text);
@@ -55,8 +77,6 @@ h1, h2, h3 {
     color: var(--color-body-text-dark);
 }
 
-
-
 /* LINKS */
 a {
     color: var(--color-primary);
@@ -64,4 +84,36 @@ a {
 
 a:hover {
     color: var(--color-primary-dark);
+}
+
+/* GLOBAL TYPOHRAPHY */
+body {
+    font-family: var(--font-body);
+    font-size: 100%;
+    line-height: 1.4;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+}
+
+
+/* ------------------
+    UI COMPONENTS 
+--------------------- */
+
+/* CARDS */
+
+.card {
+    border: var(--border-thickness) solid var(--color-border);
+    display: inline-block;
+    padding: var(--unit-s);
+    border-radius: var(--border-radius);
+}
+
+.color-swatch {
+    --_swatch-color: grey;
+    background-color: var(--_swatch-color);
+    width: 150px;
+    height: 150px;
 }
