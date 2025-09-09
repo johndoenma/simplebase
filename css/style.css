@@ -62,7 +62,7 @@ TABLE OF CONTENTS
     --unit-3xl: 6em;
 
     /* GLOBAL FONTS */
-    --font-body: ui-system, Helvetica, arial, sans-serif;
+    --font-body: system-ui, Helvetica, arial, sans-serif;
     --font-headings: Georgia, Times, "Times New Roman", serif;
 
 }
