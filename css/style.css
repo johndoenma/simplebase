@@ -17,6 +17,7 @@ TABLE OF CONTENTS
 # UI COMPONENTS
     # CARDS
     # HR (HORIZONTAL RULE)
+    # CODE BLOCKS
 
     (WE WILL ADD MORE HERE)
 
@@ -206,4 +207,13 @@ hr {
     border: none;
     border-bottom: var(--border-thickness) solid var(--color-border);
     margin: var(--unit-xl) 0;
+}
+
+/* Code Blocks */
+pre:has(code) {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--unit-s);
+    border-radius: var(--border-radius);
+    white-space: pre-wrap;
 }
