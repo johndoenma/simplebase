@@ -9,6 +9,7 @@ TABLE OF CONTENTS
     # GLOBAL MEDIA (images, video, svg)
     # GLOBAL HELPERS
     # GLOBAL RESETS
+        # ENABLE SMOOTH SCROLLING
 
 # LAYOUT
     # CONTAINER
@@ -26,6 +27,9 @@ TABLE OF CONTENTS
     # CODE BLOCKS
 
     (WE WILL ADD MORE HERE)
+
+# CUSTOM SITE STYLING (OPINIONATED)
+    # BODY GRID LAYOUT SYSTEM (header, main, and footer)
 
 ----------------------- */
 
@@ -146,6 +150,11 @@ body {  margin: 0; }
 /* Set all elements to box sizing border box */
 * { box-sizing: border-box; }
 
+/* SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
+
 
 /* ------------------
         LAYOUT 
@@ -237,6 +246,7 @@ body {  margin: 0; }
 /* SITE HEADER */
 .site-header {
     background-color: var(--color-siteheader-background);
+    padding: var(--unit-s);
 }
 
 /* SITE MAIN */
@@ -256,6 +266,7 @@ section {
 /* SITE FOOTER */
 .site-footer {
     background-color: var(--color-sitefooter-background);
+    padding: var(--unit-s);
 }
 
 /* ------------------
@@ -294,3 +305,14 @@ pre:has(code) {
     white-space: pre-wrap;
 }
 
+
+/* ------------------
+    CUSTOM SITE STYLING 
+--------------------- */
+
+/* PUSH THE FOOTER TO THE BOTTOM BY DEFAULT */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100svh;
+}
