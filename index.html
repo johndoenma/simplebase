@@ -16,12 +16,44 @@
 
 <body>
 
+    <header class="site-header">
+        HEADER GOES HERE
+    </header>
+
+    <main class="site-main">
+
+        <section class="hero">
+            HERO SECTION GOES HERE
+        </section>
+
+        <section>
+            REGULAR SECTION GOES HERE
+        </section>
+
+        <section>
+            ANOTHER SECTION GOES HERE
+        </section>
+
+    <!--
     <div class="container">
 
-        <h1>Simple Base Docs</h1>
+        <h1>Simple Base Documentation</h1>
 
         <h2>Boilerplate</h2>
         <p>This is a paragraph width default body type. I usually place a paragraph of text in my boilerplates (both in code and in Figma) in order to make sure that the default text size is correct (16px = 1em). Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos error nobis molestias est impedit, eaque provident ex quas cum blanditiis ea ad sunt natus tempore esse nihil deleniti adipisci facere recusandae ut! Deserunt nostrum similique enim veritatis, possimus soluta odit doloremque facere esse eum, rem nisi natus iste earum cupiditate!</p>
+
+        <h3>Simple Base Site Folder Structure</h3>
+
+        <pre><code>
+sitename/
+├── index.html
+├── css/
+│   ├── style.css
+├── js/
+│   ├── script.js
+├── img/
+│   ├── (images go here)                 
+    </code></pre>
 
 
         <hr>
@@ -135,6 +167,14 @@
         <hr>
 
         <h2>Grid System (12 column)</h2>
+
+
+       <pre><code>
+&lt;div class="row"&gt;
+    &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+    &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
 
         <div class="row demo">
             <div class="one-whole">1</div>
@@ -251,14 +291,9 @@
 
        <pre><code>
 &lt;div class="row"&gt;
-    &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
-    &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+    &lt;div class="one-half"&gt; ... &lt;/div&gt;
+    &lt;div class="one-half"&gt; ... &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="row"&gt;
-    &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;
-    &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;
-    &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;  
-&lt;/div&gt; 
         </code></pre>
 
         <div class="row">
@@ -271,6 +306,13 @@
             </div>
         </div>
 
+        <pre><code>
+&lt;div class="row swapped"&gt;
+    &lt;div class="one-half"&gt; ... &lt;/div&gt;
+    &lt;div class="one-half"&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
         <div class="row swapped">
             <div class="one-half">
                 <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
@@ -281,6 +323,15 @@
             </div>
         </div>
 
+
+
+        <pre><code>
+&lt;div class="row"&gt;
+    &lt;div class="one-half centered"&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
+
         <div class="row">
             <div class="one-half centered">
                 <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
@@ -288,6 +339,15 @@
                 <p>This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
             </div>
         </div>
+
+
+
+       <pre><code>
+&lt;div class="row"&gt;
+    &lt;div class="col-5 push-1"&gt; ... &lt;/div&gt;
+    &lt;div class="col-5"&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
 
         <div class="row">
             <div class="col-5 push-1">
@@ -302,13 +362,15 @@
             </div>
         </div>
 
-        <pre><code>
-&lt;div class="row swapped"&gt;
-    ...
-&lt;/div&gt;
-        </code></pre>
-
     </div>
+    -->
+        
+    </main>
+
+    <footer class="site-footer">
+        FOOTER GOES HERE
+    </footer>
+
 
     <!-- MAIN JS -->
     <script src="js/script.js"></script>
