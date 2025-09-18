@@ -18,6 +18,7 @@ TABLE OF CONTENTS
 # SITE STRUCTURE
     # HEADER
         # LOGO
+        # SITE NAV
     # MAIN
         # SECTIONS
     # FOOTER
@@ -65,7 +66,7 @@ TABLE OF CONTENTS
     --color-primary-dark: var(--color-blue-900);
     --color-secondary: var(--color-green-400);
 
-    --color-siteheader-background: var(--color-green-100);
+    --color-siteheader-background: transparent;
     --color-sitefooter-background: var(--color-green-100);
     --color-hero-background: var(--color-blue-100);
 
@@ -257,7 +258,20 @@ html {
 /* SITE HEADER */
 .site-header {
     background-color: var(--color-siteheader-background);
-    padding: var(--unit-s);
+    padding-block: var(--unit-s);
+    padding-inline: var(--unit-s);
+
+    /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--unit-s);
+    flex-wrap: wrap;
+}
+
+/* REMOVE HEADER PADDING IF IT HAS A CONTAINER */
+.site-header:has(.container) {
+    padding-inline: 0;
 }
 
 /* LOGO STYLING */
@@ -272,6 +286,12 @@ html {
     min-width: 50px;
 }
 
+/* CHRS COYIER'S FIX FOR GAP UNDR INLINE IMAGES AND SVG*/
+.site-header .logo img,
+.site-header .logo svg {
+    vertical-align: middle;
+}
+
 .site-header .logo h1 {
     font-size: 1.3125rem;
     margin: 0;
@@ -279,6 +299,24 @@ html {
 
 .site-header .logo a {
     text-decoration: none;
+}
+
+/* MAIN SITE NAV */
+.site-header .site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: var(--unit-s);
+    flex-wrap: wrap;
+}
+
+.site-header .site-nav a {
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: var(--unit-xs);
+    padding-block-start: calc(var(--unit-xs) + .1em);
 }
 
 /* SITE MAIN */
@@ -293,12 +331,19 @@ section {
 
 .hero {
     background-color: var(--color-hero-background);
+    padding-block: var(--unit-3xl);
 }
 
 /* SITE FOOTER */
 .site-footer {
     background-color: var(--color-sitefooter-background);
-    padding: var(--unit-s);
+    padding-block: var(--unit-2xl);
+    padding-inline: var(--unit-s);
+}
+
+/* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
+.site-footer:has(.container) {
+    padding-inline: 0;
 }
 
 /* ------------------
@@ -347,4 +392,9 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100svh;
+}
+
+/* NUDGE THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
+.site-header .site-nav a {
+    padding-block-start: calc(var(--unit-xs) + .35em);
 }
