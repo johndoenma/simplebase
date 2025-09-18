@@ -17,6 +17,7 @@ TABLE OF CONTENTS
 
 # SITE STRUCTURE
     # HEADER
+        # LOGO
     # MAIN
         # SECTIONS
     # FOOTER
@@ -142,6 +143,15 @@ img {
     text-align: center;
 }
 
+/* HIDE CONTENT VISUALLY (BUT KEEP FOR SEO AND ACCESSIBILITY) */
+.hide-visually,
+.visually-hidden,
+.screen-reader-only {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
 /* GLOBAL RESETS */
 
 /* Remove the default 8pm margin on body */
@@ -248,6 +258,27 @@ html {
 .site-header {
     background-color: var(--color-siteheader-background);
     padding: var(--unit-s);
+}
+
+/* LOGO STYLING */
+.site-header .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--unit-s);
+}
+
+.site-header .logo svg {
+    max-height: 50px;
+    min-width: 50px;
+}
+
+.site-header .logo h1 {
+    font-size: 1.3125rem;
+    margin: 0;
+}
+
+.site-header .logo a {
+    text-decoration: none;
 }
 
 /* SITE MAIN */
