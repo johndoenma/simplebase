@@ -76,14 +76,14 @@ TABLE OF CONTENTS
     --border-thickness: .5px;
 
     /* SIZING UNITS */
-    --unit-2xs: 0.25em;
-    --unit-xs: 0.5em;
-    --unit-s: 1em;
-    --unit-m: 1.5em;
-    --unit-l: 2em;
-    --unit-xl: 3em;
-    --unit-2xl: 4em;
-    --unit-3xl: 6em;
+    --unit-2xs: 0.25rem;
+    --unit-xs: 0.5rem;
+    --unit-s: 1rem;
+    --unit-m: 1.5rem;
+    --unit-l: 2rem;
+    --unit-xl: 3rem;
+    --unit-2xl: 4rem;
+    --unit-3xl: 6rem;
     --container-width: 1100px;
 
     /* GLOBAL FONTS */
@@ -108,7 +108,7 @@ h1, h2, h3 {
 
 /* LIMIT THE NUMBER OF CHARACTERS PER LINE FOR ALL PARAGRAPHS */
 p {
-    max-inline-size: 75ch;
+    max-inline-size: 66ch;
 }
 
 /* REMOVE WIDOWS FOR ALL PARAGRAPHS AND LIST ITEMS*/
@@ -183,6 +183,11 @@ body {  margin: 0; }
 /* SMOOTH SCROLLING */
 html {
     scroll-behavior: smooth;
+}
+
+/* ADD OFFSET TO ALL INLINE ANCHOR LINKS */
+:target {
+    scroll-margin-top: var(--unit-m);
 }
 
 
@@ -430,6 +435,30 @@ body {
     margin-block: 0
 }
 .hero p {
-    max-inline-size: 50ch;
     text-wrap: balance;
+}
+
+/* CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT */
+
+@media ( width >= 768px ) {
+
+    .pagelayout-wrapper-twocolumn {
+        display: flex;
+        gap: var(--unit-l);
+    }
+
+    .pagesection-aside {
+        width: 25%;
+    }
+
+    .pagesection-maincontent {
+        width: 75%;
+    }
+
+}
+
+/* STICKYBOX */
+.stickybox {
+    position: sticky;
+    top: var(--unit-m);
 }
