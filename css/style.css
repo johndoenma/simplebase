@@ -67,7 +67,7 @@ TABLE OF CONTENTS
     --color-secondary: var(--color-green-400);
 
     --color-siteheader-background: transparent;
-    --color-sitefooter-background: var(--color-green-100);
+    --color-sitefooter-background: transparent;
     --color-hero-background: var(--color-blue-100);
 
     /* BORDERS */
@@ -98,8 +98,22 @@ body {
     color: var(--color-body-text);
 }
 
+/* HEADINGS */
 h1, h2, h3 {
     color: var(--color-body-text-dark);
+
+    /* ADD SUPPORT FOR TEXTWRAP BALANCE */
+    text-wrap: balance;
+}
+
+/* LIMIT THE NUMBER OF CHARACTERS PER LINE FOR ALL PARAGRAPHS */
+p {
+    max-inline-size: 75ch;
+}
+
+/* REMOVE WIDOWS FOR ALL PARAGRAPHS AND LIST ITEMS*/
+p, li { 
+    text-wrap: pretty;
 }
 
 /* LINKS */
@@ -142,6 +156,11 @@ img {
 
 .text-centered {
     text-align: center;
+}
+
+/* CENTER PARAGRAPHS INSIDE CENTERED PARENTS */
+.text-centered p {
+    margin-inline: auto;
 }
 
 /* HIDE CONTENT VISUALLY (BUT KEEP FOR SEO AND ACCESSIBILITY) */
@@ -326,13 +345,19 @@ html {
 
 /* STYLING FOR ALL SECTIONS */
 section {
-    padding-block: var(--unit-xl);
+    padding-block: var(--unit-2xl);
 }
 
 .hero {
     background-color: var(--color-hero-background);
     padding-block: var(--unit-3xl);
+    padding-inline: var(--unit-s);
 }
+
+.hero:has(.container) {
+    padding-inline: 0;
+}
+
 
 /* SITE FOOTER */
 .site-footer {
@@ -397,4 +422,14 @@ body {
 /* NUDGE THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
 .site-header .site-nav a {
     padding-block-start: calc(var(--unit-xs) + .35em);
+}
+
+/* CUSTOM HERO STYLING */
+.hero h1 {
+    font-size: 4em;
+    margin-block: 0
+}
+.hero p {
+    max-inline-size: 50ch;
+    text-wrap: balance;
 }
