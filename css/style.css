@@ -33,6 +33,7 @@ TABLE OF CONTENTS
 
 # CUSTOM SITE STYLING (OPINIONATED)
     # BODY GRID LAYOUT SYSTEM (header, main, and footer)
+    # HEADER ON TOP OF HERO
     # CUSTOM HERO STYLING
     # CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT
     # STICKYBOX
@@ -78,7 +79,10 @@ TABLE OF CONTENTS
     --color-links-hover: var(--color-green-800);
     --color-links-light: var(--color-green-200);
 
+    /* SECTION SPECIFIC */
     --color-siteheader-background: transparent;
+    --color-siteheader-links: var(--color-blue-400);
+    --color-siteheader-links-hover: var(--color-blue-900);
     --color-sitefooter-background: transparent;
     --color-hero-background: var(--color-blue-100);
 
@@ -349,11 +353,16 @@ html {
 }
 
 .site-nav a {
+    color: var(--color-siteheader-links);
     text-decoration: none;
     font-weight: bold;
     display: block;
     padding: var(--unit-xs);
     padding-block-start: calc(var(--unit-xs) + .1em);
+    
+}
+.site-nav a:hover {
+    color: var(--color-siteheader-links-hover);
 }
 
 /* SHOW MENU BUTTON ON HIGHER LAYER WHEN NAV IS OPEN */
@@ -548,6 +557,15 @@ body > * {
 /* NUDGE THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
 .site-header .site-nav a {
     padding-block-start: calc(var(--unit-xs) + .35em);
+}
+
+/* RENDER HEADER ON TOP OF HERO */
+.site-header.on-top-of-hero {
+    position: absolute;
+    width: 100%;
+}
+.site-header.on-top-of-hero + .site-main .hero {
+    padding-block-start: calc(var(--unit-3xl) + var(--unit-xl));
 }
 
 /* CUSTOM HERO STYLING */
