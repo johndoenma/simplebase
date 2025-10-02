@@ -300,7 +300,7 @@ html {
     /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     gap: var(--unit-s);
     flex-wrap: wrap;
 }
@@ -360,11 +360,12 @@ html {
 .site-nav .menubutton {
     position: relative;
     z-index: 100;
-    background-color: transparent;
     border: none;
     font-size: inherit;
     font-family: inherit;
     padding: var(--unit-xs);
+    margin-block-start: var(--unit-xs);
+    background-color: transparent;
 }
 
 /* SMALL SCREENS: SHOW MENU BUTTON, HIDE NAV */
@@ -389,7 +390,7 @@ html {
         top: 0;
         width: 100%;
         height: 100%;
-        background: var(--color-black);   
+        background: red;   
         transition: translate 0.3s ease-out;
     }
     .site-nav[data-menustate] a {
@@ -401,14 +402,47 @@ html {
     }
 
     .site-nav[data-menustate="closed"] ul {
-        translate: 0 -100%;
+        translate: 100% 0;
+    }  
+
+    /* ENABLE SVG ANIMATION FOR THE NAVICON */
+    .site-nav[data-menustate] .simple-navicon rect {
+        transition: all .3s ease-out
     }
 
+    /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
     .site-nav[data-menustate="open"] .simple-navicon rect {
         fill: var(--color-white);
     }
+
+    /* ANIMATE NAVICON LINES TO AN X WHEN OPEN */
+    .site-nav .simple-navicon  {
+        display: block;
+
+    }
+    .site-nav .simple-navicon rect {
+        transform-origin: center;
+        width: 100%;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon {
+        position: fixed;
+        top: calc(var(--unit-s) + var(--unit-s));
+        right: calc(var(--unit-s) + var(--unit-xs));
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-top {
+        rotate: 45deg;
+        translate: -21% 24%;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-middle {
+        opacity: 0;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-bottom {
+        rotate: -45deg;
+        translate: -21% -24%;
+    }
     
 }
+
 
 /* SITE MAIN */
 .site-main {
@@ -547,7 +581,10 @@ body > * {
 }
 
 /* STICKYBOX */
-.stickybox {
-    position: sticky;
-    top: var(--unit-m);
+/* NOTE NEEDED ON SMALL SCREENS, SO IT IS SET INSIDE OF A MEDIA QUERY SO IT ALLOWS THE OVERLAY MENU TO RENDER ON TOP ON SMALL SCREENS */
+@media ( width >= 768px ) {
+    .stickybox {
+        position: sticky;
+        top: var(--unit-m);
+    }
 }
