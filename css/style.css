@@ -57,6 +57,7 @@ TABLE OF CONTENTS
 
     --color-blue-100: #dbeafe;
     --color-blue-400: #3b82f6;
+    --color-blue-800: #3654a8;
     --color-blue-900: #294491;
 
     --color-green-100: #d1fae5;
@@ -76,13 +77,13 @@ TABLE OF CONTENTS
     --color-secondary: var(--color-green-400);
 
     /* ACTION COLORS */
-    --color-links: var(--color-blue-400);
+    --color-links: var(--color-blue-800);
     --color-links-hover: var(--color-blue-900);
     --color-links-light: var(--color-blue-100);
 
     /* SECTION SPECIFIC */
     --color-siteheader-background: transparent;
-    --color-siteheader-links: var(--color-blue-400);
+    --color-siteheader-links: var(--color-blue-800);
     --color-siteheader-links-hover: var(--color-blue-900);
     --color-sitefooter-background: var(--color-grey-100);
     --color-hero-background: var(--color-blue-100);
