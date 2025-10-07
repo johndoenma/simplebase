@@ -420,13 +420,13 @@ html {
     }  
 
     /* ENABLE SVG ANIMATION FOR THE NAVICON */
-    .site-nav .simple-navicon rect {
+    .site-nav svg.simple-navicon rect {
         transition: all .3s ease-out;
         fill: var(--color-primary);
     }
 
     /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
-    .site-nav[data-menustate="open"] .simple-navicon rect {
+    .site-nav[data-menustate="open"] svg.simple-navicon rect {
         fill: var(--color-white);
     }
 
